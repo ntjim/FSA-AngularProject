@@ -1,3 +1,3 @@
-# MyWeatherApp
+# FSA-Angular Project
 
-FSA - Angular project
+MyWeatherApp
