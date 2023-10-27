@@ -11,25 +11,36 @@ export class WeatherComponent implements OnInit {
   cityName: string = '';
   temp: number = 0;
   icon: string = '';
+  prevCityName: string = 'Atlanta';
 
   
   constructor(private weatherData: DataService) {}
 
   ngOnInit(): void {
-      this.weatherData.getWeatherData().subscribe({
+    this.cityName = '';
+    this.getWeatherData(this.prevCityName);    
+  }
 
-        next: (res) => {
-          console.log(res)
-          this.myWeather = res;
-          console.log(this.myWeather);
-          this.cityName = this.myWeather.name;
-          this.temp = this.myWeather.main.temp;
-          this.icon = 'https://openweathermap.org/img/wn/' + this.myWeather.weather[0].icon + '@2x.png';
-        },
+  onSubmit() {
+    this.getWeatherData(this.cityName);
+    this.cityName = '';
+  }
 
-        error: (error) => console.log(error.message),
+  private getWeatherData(cityName: string) {
+    this.weatherData.getWeatherData(this.cityName).subscribe({
 
-        complete: () => console.info('API call completed')
-      })
+      next: (res) => {
+        console.log(res)
+        this.myWeather = res;
+        console.log(this.myWeather);
+        this.cityName = this.myWeather.name;
+        this.temp = this.myWeather.main.temp;
+        this.icon = 'https://openweathermap.org/img/wn/' + this.myWeather.weather[0].icon + '@2x.png';
+      },
+
+      error: (error) => console.log(error.message),
+
+      complete: () => console.info('API call completed')
+    })
   }
 }

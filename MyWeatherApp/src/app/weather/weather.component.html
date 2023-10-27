@@ -1,3 +1,9 @@
+<div class="addLocation">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <input type="text" placeholder="Search" name="city" [(ngModel)]="cityName">
+    </form>
+</div>
+
 <!-- weather card component -->
 <ng-container>
     <div class="container">
@@ -8,7 +14,7 @@
                 <img src="{{icon}}" alt="weather icon">
             </div>
            
-            <div class="city">{{cityName}}</div>
+            <div class="city">{{prevCityName}}</div>
             <div class="temp">{{ temp | number: '1.0-0' }}ºF</div>
         </div>
     </div>
