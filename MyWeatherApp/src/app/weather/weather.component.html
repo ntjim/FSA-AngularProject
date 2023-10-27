@@ -1,0 +1,15 @@
+<!-- weather card component -->
+<ng-container>
+    <div class="container">
+        
+        
+        <div class="weatherdata">
+            <div class="weathericon">
+                <img src="{{icon}}" alt="weather icon">
+            </div>
+           
+            <div class="city">{{cityName}}</div>
+            <div class="temp">{{ temp | number: '1.0-0' }}ºF</div>
+        </div>
+    </div>
+</ng-container>  
