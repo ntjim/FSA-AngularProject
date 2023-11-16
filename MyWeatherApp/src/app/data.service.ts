@@ -9,6 +9,6 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getWeatherData(cityName: string) {
-    return this.http.get('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=65179c0e5c2d0a8918d63d43d1d5f6c9&units=imperial'); 
+    return this.http.get('https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=---&units=imperial'); 
   }
 }
